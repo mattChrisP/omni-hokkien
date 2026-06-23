@@ -1,4 +1,4 @@
-🔊 **Playable page:** https://inlp-lab.github.io/omni_hokkien/
+🔊 **Playable page:** https://mattchrisp.github.io/omni-hokkien/
 
 | Text (Mandarin subtitle) | Rough meaning | Audio |
 |---|---|---|
