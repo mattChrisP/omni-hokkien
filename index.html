@@ -38,9 +38,9 @@
   <div class="legend">
     <div><b>② Q2.5 latent bridge</b> — Q2.5 thinker (QA LoRA) → trained latent bridge → Q3 SG talker. <i>(old best)</i></div>
     <div><b>③ Text-cascade</b> — Q2.5 thinker decodes the answer to text → same Q3 SG talker speaks it. <i>(ASR → text → TTS)</i></div>
-    <div><b>④ Bridge v6 · humanchat-v1 · ep4 · raw-ch2</b> — same Q2.5 answer as ③, spoken through the v6 latent bridge instead of cascade TTS. <i>(v1 set only)</i></div>
+    <div><b>④ Bridge v6 · ep4 · raw-ch2</b> — same Q2.5 answer as ③, spoken through the v6 latent bridge instead of cascade TTS.</div>
   </div>
-  <p style="font-size:.85rem;color:#999;margin:-.6rem 0 1.4rem">Same question, up to three pipelines. Each reply has a rough English gloss underneath (bridge replies also show a romanized reading). ③ and ④ share the same Q2.5 answer text — ③ speaks it via cascade TTS, ④ via the v6 latent bridge — so compare the audio. ④ appears on the v1 set only.</p>
+  <p style="font-size:.85rem;color:#999;margin:-.6rem 0 1.4rem">Same question, up to three pipelines. Each reply has a rough English gloss underneath (bridge replies also show a romanized reading). ③ and ④ share the same Q2.5 answer text — ③ speaks it via cascade TTS, ④ via the v6 latent bridge — so compare the audio. ④ is shown on both eval sets.</p>
 <h2 class="seth">Eval set v1 <span class="count">· 9 cases</span></h2>
   <div class="case">
     <div class="q"><div class="qlabel">Audio question <span class="tag">sg_audio_996_04_ah-wei</span></div><div class="han">讲著就心酸，有闲再佮你坐咧食一杯啦。</div><div class="rom">jiǎng zháo jiù xīnsuān, yǒu xián zài kā nǐ zuò leh jiā yī bēi la.</div><div class="en">Talking about it just makes me sad — when you&#x27;re free, come sit and have a drink with me.</div><div class="qaudio"><audio controls preload="none" src="samples/v1__sg_audio_996_04_ah-wei__question.wav"></audio></div></div>
@@ -225,7 +225,7 @@
 <h2 class="seth">Eval set v2 <span class="count">· 14 cases</span></h2>
   <div class="case">
     <div class="q"><div class="qlabel">Audio question <span class="tag">sg_audio_990_06_ah-mei</span></div><div class="han">知影啦，我一定早早伫遐等你。多谢你啊林叔！</div><div class="rom">chai-iáⁿ la, wǒ yīdìng chá-chá tī hia děng nǐ. duōxiè nǐ a Lîm-chek!</div><div class="en">Got it — I&#x27;ll definitely be there early waiting for you. Thanks, Uncle Lim!</div><div class="qaudio"><audio controls preload="none" src="samples/v2__sg_audio_990_06_ah-mei__question.wav"></audio></div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">免客气，大家拢是邻居，互相照顾一下。</div><div class="rom">bián kheh-khì, dàke lǒng shì línjū, hùxiāng zhàogù yīxià.</div><div class="en">You&#x27;re welcome — we&#x27;re all neighbours, we look out for each other.</div></div>
@@ -236,11 +236,16 @@
         <div class="reply"><div class="han">免客气，有啥物代志再来揣我。去啦，去食饭矣！</div><div class="rom">mián kheh-khì, ū siáⁿ-mih tāi-chì zài lái chhōe wǒ. qù la, qù jiā-pn̄g la!</div><div class="en">Don&#x27;t mention it — come find me if you need anything else. Go on, go and eat!</div></div>
         <audio controls preload="none" src="samples/v2__sg_audio_990_06_ah-mei__cascade.wav"></audio> <span class="dur">4.14s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">免客气，有啥物代志再来揣我。去啦，去食饭矣！</div><div class="rom">mián kheh-khì, ū siáⁿ-mih tāi-chì zài lái chhōe wǒ. qù la, qù jiā-pn̄g la!</div><div class="en">Don&#x27;t mention it — come find me if you need anything else. Go on, go and eat!</div></div>
+        <audio controls preload="none" src="samples/v2__sg_audio_990_06_ah-mei__bridgev6.wav"></audio> <span class="dur">2.46s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Audio question <span class="tag">sg_audio_994_02_mei-ling</span></div><div class="han">有啦，昨昏吵甲我拢无好睏。</div><div class="rom">ū la, cha-hng chǎo kah wǒ lǒng bô hó khùn.</div><div class="en">Yeah — last night it was so noisy I couldn&#x27;t sleep.</div><div class="qaudio"><audio controls preload="none" src="samples/v2__sg_audio_994_02_mei-ling__question.wav"></audio></div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">伊敢是咧装修？</div><div class="rom">yī kám sī leh zhuāngxiū?</div><div class="en">Is he doing renovations?</div></div>
@@ -251,11 +256,16 @@
         <div class="reply"><div class="han">按呢真无礼貌。你敢有去共伊讲过？</div><div class="rom">án-ne zhēn bô lǐmào. lí kám ū qù kā yī jiǎng guò?</div><div class="en">That&#x27;s really rude. Have you gone and spoken to him about it?</div></div>
         <audio controls preload="none" src="samples/v2__sg_audio_994_02_mei-ling__cascade.wav"></audio> <span class="dur">3.26s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">按呢真无礼貌。你敢有去共伊讲过？</div><div class="rom">án-ne zhēn bô lǐmào. lí kám ū qù kā yī jiǎng guò?</div><div class="en">That&#x27;s really rude. Have you gone and spoken to him about it?</div></div>
+        <audio controls preload="none" src="samples/v2__sg_audio_994_02_mei-ling__bridgev6.wav"></audio> <span class="dur">2.62s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Audio question <span class="tag">sg_audio_986_05_ah-beng</span></div><div class="han">按呢才着，做人子女爱有孝心，莫等到后悔就慢矣。</div><div class="rom">án-ne chiah tio̍h, zuò rén zǐnǚ ài yǒu xiàoxīn, mài děng kàu hòuhuǐ jiù màn la.</div><div class="en">That&#x27;s right — as children we should be filial; don&#x27;t wait until you regret it, by then it&#x27;s too late.</div><div class="qaudio"><audio controls preload="none" src="samples/v2__sg_audio_986_05_ah-beng__question.wav"></audio></div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">多谢阿嬷教示，我知影矣，我会考虑。</div><div class="rom">duōxiè a-má jiàoshì, wǒ chai-iáⁿ la, wǒ ē kǎolǜ.</div><div class="en">Thanks for the advice, Grandma — I understand, I&#x27;ll think about it.</div></div>
@@ -266,11 +276,16 @@
         <div class="reply"><div class="han">是啊，阿嬷。你讲的拢是真道理，做人确实爱有感恩的心。</div><div class="rom">shì a, a-má. lí jiǎng ê lǒng shì zhēn dàolǐ, zuòrén quèshí ài ū gǎn&#x27;ēn ê sim.</div><div class="en">Yes, Grandma. What you say is all true — we really should have a grateful heart.</div></div>
         <audio controls preload="none" src="samples/v2__sg_audio_986_05_ah-beng__cascade.wav"></audio> <span class="dur">6.38s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">是啊，阿嬷。你讲的拢是真道理，做人确实爱有感恩的心。</div><div class="rom">shì a, a-má. lí jiǎng ê lǒng shì zhēn dàolǐ, zuòrén quèshí ài ū gǎn&#x27;ēn ê sim.</div><div class="en">Yes, Grandma. What you say is all true — we really should have a grateful heart.</div></div>
+        <audio controls preload="none" src="samples/v2__sg_audio_986_05_ah-beng__bridgev6.wav"></audio> <span class="dur">4.22s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Audio question <span class="tag">sg_audio_992_01_ah-peng</span></div><div class="han">阿婶，这条鱼卖多少钱？</div><div class="rom">a-chím, zhè tiáo yú mài duōshǎo qián?</div><div class="en">Auntie, how much is this fish?</div><div class="qaudio"><audio controls preload="none" src="samples/v2__sg_audio_992_01_ah-peng__question.wav"></audio></div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">这条鱼算你十五箍就好，我拢是熟客矣。</div><div class="rom">zhè tiáo yú suàn nǐ shíwǔ kho͘ jiù hǎo, wǒ lǒng shì se̍k-kheh la.</div><div class="en">I&#x27;ll give you this fish for fifteen bucks — you&#x27;re a regular after all.</div></div>
@@ -281,11 +296,16 @@
         <div class="reply"><div class="han">阿伯，这条鱼卖二十块。你买着无？</div><div class="rom">a-peh, zhè tiáo yú mài jī-sa̍p kho. lí mǎi-tio̍h bô?</div><div class="en">Uncle, this fish is twenty dollars. Did you manage to get it?</div></div>
         <audio controls preload="none" src="samples/v2__sg_audio_992_01_ah-peng__cascade.wav"></audio> <span class="dur">3.58s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">阿伯，这条鱼卖二十块。你买着无？</div><div class="rom">a-peh, zhè tiáo yú mài jī-sa̍p kho. lí mǎi-tio̍h bô?</div><div class="en">Uncle, this fish is twenty dollars. Did you manage to get it?</div></div>
+        <audio controls preload="none" src="samples/v2__sg_audio_992_01_ah-peng__bridgev6.wav"></audio> <span class="dur">3.90s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_00</span></div><div class="qen">What&#x27;s the best strategy to beat a really hard boss in a video game?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">汝爱先看它的攻击模式，按呢才好准备。</div><div class="rom">lí ài seng khòaⁿ tā ê gōngjí móshì, án-ne chiah hó zhǔnbèi.</div><div class="en">First look at its attack patterns, so you can prepare properly.</div></div>
@@ -296,11 +316,16 @@
         <div class="reply"><div class="han">哎哟，这爱看你是按怎的 boss 啊。你是讲那种会一直讲你的话，抑是会一直攻击你的那种？</div><div class="rom">āi-yo, zhè ài khòaⁿ lí sī án-chuáⁿ ê boss a. lí sī jiǎng nà zhǒng ē yīzhí jiǎng lí ê uē, iah-sī ē yīzhí gōngjí lí ê nà zhǒng?</div><div class="en">Oh, that depends what kind of boss you mean. The kind that keeps nagging you, or the kind that keeps attacking you?</div></div>
         <audio controls preload="none" src="samples/v2__en_text_00__cascade.wav"></audio> <span class="dur">6.94s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">哎哟，这爱看你是按怎的 boss 啊。你是讲那种会一直讲你的话，抑是会一直攻击你的那种？</div><div class="rom">āi-yo, zhè ài khòaⁿ lí sī án-chuáⁿ ê boss a. lí sī jiǎng nà zhǒng ē yīzhí jiǎng lí ê uē, iah-sī ē yīzhí gōngjí lí ê nà zhǒng?</div><div class="en">Oh, that depends what kind of boss you mean. The kind that keeps nagging you, or the kind that keeps attacking you?</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_00__bridgev6.wav"></audio> <span class="dur">6.86s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_01</span></div><div class="qen">My phone battery dies super fast, what should I do?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">汝爱去买新手机，毋通一直忍。</div><div class="rom">lí ài qù mǎi xīn shǒujī, m̄-thang yīzhí rěn.</div><div class="en">You should just go buy a new phone — don&#x27;t keep putting up with it.</div></div>
@@ -311,11 +336,16 @@
         <div class="reply"><div class="han">哎哟，按呢真麻烦。你敢有去检查过？</div><div class="rom">āi-yo, án-ne zhēn máfan. lí kám ū qù jiǎnchá guò?</div><div class="en">Oh, that&#x27;s a real hassle. Have you taken it in to be checked?</div></div>
         <audio controls preload="none" src="samples/v2__en_text_01__cascade.wav"></audio> <span class="dur">3.18s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">哎哟，按呢真麻烦。你敢有去检查过？</div><div class="rom">āi-yo, án-ne zhēn máfan. lí kám ū qù jiǎnchá guò?</div><div class="en">Oh, that&#x27;s a real hassle. Have you taken it in to be checked?</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_01__bridgev6.wav"></audio> <span class="dur">2.94s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_02</span></div><div class="qen">Explain how the internet works, in simple words.</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">互联网就是一种大网络，大家用电脑连起来，信息就传过来了。</div><div class="rom">hùliánwǎng jiùshì yī zhǒng dà wǎngluò, dàjiā yòng diànnǎo lián qǐlái, xìnxī jiù chuán guòlái le.</div><div class="en">The internet is one big network — everyone connects via computers, and information gets passed across.</div></div>
@@ -326,11 +356,16 @@
         <div class="reply"><div class="han">好啊！简单讲，互联网就是大台电脑，大家用手机或者是电脑连到彼台，就可以互相传送讯息，阁有音乐、影片通看。</div><div class="rom">hǎo a! jiǎndān jiǎng, hùliánwǎng jiùshì dà tái diànnǎo, dàjiā yòng shǒujī huòzhě shì diànnǎo lián dào hit tái, jiù kěyǐ hùxiāng chuánsòng xùnxī, koh ū yīnyuè, yǐngpiàn thang khòaⁿ.</div><div class="en">Sure! Simply put, the internet is like one big computer — everyone connects to it with their phone or computer, and then you can send each other messages, and watch music and videos too.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_02__cascade.wav"></audio> <span class="dur">9.90s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">好啊！简单讲，互联网就是大台电脑，大家用手机或者是电脑连到彼台，就可以互相传送讯息，阁有音乐、影片通看。</div><div class="rom">hǎo a! jiǎndān jiǎng, hùliánwǎng jiùshì dà tái diànnǎo, dàjiā yòng shǒujī huòzhě shì diànnǎo lián dào hit tái, jiù kěyǐ hùxiāng chuánsòng xùnxī, koh ū yīnyuè, yǐngpiàn thang khòaⁿ.</div><div class="en">Sure! Simply put, the internet is like one big computer — everyone connects to it with their phone or computer, and then you can send each other messages, and watch music and videos too.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_02__bridgev6.wav"></audio> <span class="dur">6.30s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_03</span></div><div class="qen">If a dinosaur and a robot got into a fight, who would win and why?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">按呢就无定论啦，看它们的武器有够犀利。</div><div class="rom">án-ne jiù bô tēng-lūn la, khòaⁿ tā-men ê wǔqì ū-kàu xīlì.</div><div class="en">There&#x27;s no clear answer — it depends on how sharp their weapons are.</div></div>
@@ -341,11 +376,16 @@
         <div class="reply"><div class="han">若按呢讲，我敢讲是机器啦！因为机器是人设计出来的，有智慧，毋是咧乱乱动。</div><div class="rom">nā án-ne jiǎng, wǒ kám jiǎng sī jīqì la! yīnwèi jīqì shì rén shèjì chūlái ê, ū zhìhuì, m̄-sī leh luàn-luàn tāng.</div><div class="en">If you put it that way, I&#x27;d say the robot! Because a robot is designed by people — it has intelligence, it isn&#x27;t just thrashing about.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_03__cascade.wav"></audio> <span class="dur">6.94s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">若按呢讲，我敢讲是机器啦！因为机器是人设计出来的，有智慧，毋是咧乱乱动。</div><div class="rom">nā án-ne jiǎng, wǒ kám jiǎng sī jīqì la! yīnwèi jīqì shì rén shèjì chūlái ê, ū zhìhuì, m̄-sī leh luàn-luàn tāng.</div><div class="en">If you put it that way, I&#x27;d say the robot! Because a robot is designed by people — it has intelligence, it isn&#x27;t just thrashing about.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_03__bridgev6.wav"></audio> <span class="dur">7.02s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_04</span></div><div class="qen">What&#x27;s a good birthday gift for a friend who loves coffee?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">买一盒好食的咖啡，或者送伊一台咖啡机，伊一定会 suka。</div><div class="rom">mǎi yī hé hó-jiā ê kāfēi, huòzhě sòng yī yī tái kāfēi-jī, yī yīdìng ē suka.</div><div class="en">Buy a box of nice coffee, or get him a coffee machine — he&#x27;ll definitely like it (suka).</div></div>
@@ -356,11 +396,16 @@
         <div class="reply"><div class="han">买一盒好一点的咖啡豆，抑是买一罐好喝的茶包嘛真好。</div><div class="rom">mǎi yī hé hǎo yīdiǎn ê kāfēidòu, iah-sī mǎi yī guàn hó-lim ê chábāo mā zhēn hó.</div><div class="en">Buy a nicer box of coffee beans, or a tin of good tea bags — that&#x27;d be lovely too.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_04__cascade.wav"></audio> <span class="dur">4.62s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">买一盒好一点的咖啡豆，抑是买一罐好喝的茶包嘛真好。</div><div class="rom">mǎi yī hé hǎo yīdiǎn ê kāfēidòu, iah-sī mǎi yī guàn hó-lim ê chábāo mā zhēn hó.</div><div class="en">Buy a nicer box of coffee beans, or a tin of good tea bags — that&#x27;d be lovely too.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_04__bridgev6.wav"></audio> <span class="dur">5.26s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_05</span></div><div class="qen">Can you explain what cryptocurrency is?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">cryptocurrency 是一种毋需透过银行的电子货币，现在真流行。</div><div class="rom">cryptocurrency sī yī zhǒng m̄-su thàu-kòe yínháng ê diànzǐ huòbì, xiànzài zhēn liúxíng.</div><div class="en">Cryptocurrency is a kind of electronic money that doesn&#x27;t need to go through a bank — it&#x27;s very popular now.</div></div>
@@ -371,11 +416,16 @@
         <div class="reply"><div class="han">cryptocurrency 是一种用密码学原理来交换的电子货币，毋是用银行的。</div><div class="rom">cryptocurrency sī yī zhǒng yòng mìmǎxué yuánlǐ lái jiāohuàn ê diànzǐ huòbì, m̄-sī yòng yínháng ê.</div><div class="en">Cryptocurrency is a kind of electronic money exchanged using cryptography — it doesn&#x27;t go through a bank.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_05__cascade.wav"></audio> <span class="dur">5.50s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">cryptocurrency 是一种用密码学原理来交换的电子货币，毋是用银行的。</div><div class="rom">cryptocurrency sī yī zhǒng yòng mìmǎxué yuánlǐ lái jiāohuàn ê diànzǐ huòbì, m̄-sī yòng yínháng ê.</div><div class="en">Cryptocurrency is a kind of electronic money exchanged using cryptography — it doesn&#x27;t go through a bank.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_05__bridgev6.wav"></audio> <span class="dur">4.46s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_06</span></div><div class="qen">Tell me a short funny joke.</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">阿公，你敢有听讲，隔壁阿伯昨昏去巴刹买菜，买着一只大只的虾？</div><div class="rom">a-kong, nǐ kám ū tīng-kóng, gébì a-peh cha-hng qù pa-sat mǎi-cài, mǎi-tio̍h yī zhī dà zhī ê hê?</div><div class="en">Grandpa, did you hear? The uncle next door went to the market (pasar) yesterday and bought a huge prawn!</div></div>
@@ -386,11 +436,16 @@
         <div class="reply"><div class="han">好啊，我讲一个。有一个阿公，伊的孙仔伊讲伊真懒惰，伊就共伊讲：「你若想欲食好料，就爱先食饱饱。」孙仔听后，惊惊讲：「阿公，你讲的按呢，我食饱矣，敢会饿？」阿公笑伊讲：「你若食饱，我嘛会饿，你敢有听过？」</div><div class="rom">hǎo a, wǒ jiǎng yī ge. ū yī ge a-kong, yī ê sun-á yī jiǎng yī zhēn lǎnduò, yī jiù kā yī jiǎng: &#x27;lí nā siūⁿ-beh jiā hó-liāu, jiù ài seng jiā-pá-pá.&#x27; sun-á thiann-āu, kiann-kiann jiǎng: &#x27;a-kong, lí jiǎng ê án-ne, wǒ jiā-pá la, kám ē gō?&#x27; a-kong chhiò yī jiǎng: &#x27;lí nā jiā-pá, wǒ mā ē gō, lí kám ū thiann guò?&#x27;</div><div class="en">Alright, here&#x27;s one. A grandpa&#x27;s grandson was very lazy, so he told him: &#x27;If you want to eat well, first you have to eat your fill.&#x27; The grandson, startled, said: &#x27;Grandpa, the way you put it — I&#x27;ve eaten my fill, so will I be hungry?&#x27; The grandpa laughed at him: &#x27;If you&#x27;ve eaten your fill, I&#x27;d still be hungry — ever heard such a thing?&#x27;</div></div>
         <audio controls preload="none" src="samples/v2__en_text_06__cascade.wav"></audio> <span class="dur">12.86s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">好啊，我讲一个。有一个阿公，伊的孙仔伊讲伊真懒惰，伊就共伊讲：「你若想欲食好料，就爱先食饱饱。」孙仔听后，惊惊讲：「阿公，你讲的按呢，我食饱矣，敢会饿？」阿公笑伊讲：「你若食饱，我嘛会饿，你敢有听过？」</div><div class="rom">hǎo a, wǒ jiǎng yī ge. ū yī ge a-kong, yī ê sun-á yī jiǎng yī zhēn lǎnduò, yī jiù kā yī jiǎng: &#x27;lí nā siūⁿ-beh jiā hó-liāu, jiù ài seng jiā-pá-pá.&#x27; sun-á thiann-āu, kiann-kiann jiǎng: &#x27;a-kong, lí jiǎng ê án-ne, wǒ jiā-pá la, kám ē gō?&#x27; a-kong chhiò yī jiǎng: &#x27;lí nā jiā-pá, wǒ mā ē gō, lí kám ū thiann guò?&#x27;</div><div class="en">Alright, here&#x27;s one. A grandpa&#x27;s grandson was very lazy, so he told him: &#x27;If you want to eat well, first you have to eat your fill.&#x27; The grandson, startled, said: &#x27;Grandpa, the way you put it — I&#x27;ve eaten my fill, so will I be hungry?&#x27; The grandpa laughed at him: &#x27;If you&#x27;ve eaten your fill, I&#x27;d still be hungry — ever heard such a thing?&#x27;</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_06__bridgev6.wav"></audio> <span class="dur">0.94s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_07</span></div><div class="qen">I&#x27;m feeling really stressed about my exams, any advice?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">汝爱早起一点，毋通遐尔懒惰。</div><div class="rom">lí ài chá khí yīdiǎn, m̄-thang hiah-nī lǎnduò.</div><div class="en">You should wake up a bit earlier — don&#x27;t be so lazy.</div></div>
@@ -401,11 +456,16 @@
         <div class="reply"><div class="han">食饱未？先歇困一下，莫伤操烦。</div><div class="rom">jiā-pá-bōe? seng hioh-khùn yīxià, mài siuⁿ chhau-hoân.</div><div class="en">Have you eaten? Rest a little first — don&#x27;t worry yourself too much.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_07__cascade.wav"></audio> <span class="dur">2.94s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">食饱未？先歇困一下，莫伤操烦。</div><div class="rom">jiā-pá-bōe? seng hioh-khùn yīxià, mài siuⁿ chhau-hoân.</div><div class="en">Have you eaten? Rest a little first — don&#x27;t worry yourself too much.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_07__bridgev6.wav"></audio> <span class="dur">3.26s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_08</span></div><div class="qen">What should I pack for a trip to Japan in winter?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">汝爱带厚衫，毋通只带一件衫。</div><div class="rom">lí ài dài kāu saⁿ, m̄-thang zhǐ dài yī jiàn saⁿ.</div><div class="en">Bring thick clothes — don&#x27;t just bring one piece.</div></div>
@@ -416,11 +476,16 @@
         <div class="reply"><div class="han">冬日日本冷啊，汝爱带保暖的衫裤，阁带一盒暖身的药。</div><div class="rom">tang-jit rìběn lěng a, lí ài dài bǎonuǎn ê saⁿ-khò, koh dài yī hé nuǎn-shēn ê io̍h.</div><div class="en">Japan is cold in winter — you need to bring warm clothes, and a box of something to keep yourself warm.</div></div>
         <audio controls preload="none" src="samples/v2__en_text_08__cascade.wav"></audio> <span class="dur">4.62s</span>
       </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">冬日日本冷啊，汝爱带保暖的衫裤，阁带一盒暖身的药。</div><div class="rom">tang-jit rìběn lěng a, lí ài dài bǎonuǎn ê saⁿ-khò, koh dài yī hé nuǎn-shēn ê io̍h.</div><div class="en">Japan is cold in winter — you need to bring warm clothes, and a box of something to keep yourself warm.</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_08__bridgev6.wav"></audio> <span class="dur">4.38s</span>
+      </div>
     </div>
   </div>
   <div class="case">
     <div class="q"><div class="qlabel">Text question <span class="tag">en_text_09</span></div><div class="qen">How do I make my own bubble tea at home?</div></div>
-    <div class="cols">
+    <div class="cols3">
       <div class="col">
         <div class="model">② Q2.5 → Bridge → Q3</div>
         <div class="reply"><div class="han">汝买一包珍珠粉，加水煮到变色，落一点冰糖，按呢就成矣。</div><div class="rom">lí mǎi yī bāo zhēnzhū fěn, jiā shuǐ zhǔ kàu biànsè, lo̍h yīdiǎn bīngtáng, án-ne jiù chiâⁿ la.</div><div class="en">Buy a pack of tapioca-pearl powder, boil it with water until it changes colour, add a little rock sugar, and it&#x27;s done.</div></div>
@@ -430,6 +495,11 @@
         <div class="model">③ Text-cascade</div>
         <div class="reply"><div class="han">简单啊！你有准备茶叶佮糖无？</div><div class="rom">jiǎndān a! lí ū zhǔnbèi chá-yè kah thn̂g bô?</div><div class="en">Easy! Do you have tea leaves and sugar ready?</div></div>
         <audio controls preload="none" src="samples/v2__en_text_09__cascade.wav"></audio> <span class="dur">3.34s</span>
+      </div>
+      <div class="col">
+        <div class="model">④ Bridge v6 · raw-ch2</div>
+        <div class="reply"><div class="han">简单啊！你有准备茶叶佮糖无？</div><div class="rom">jiǎndān a! lí ū zhǔnbèi chá-yè kah thn̂g bô?</div><div class="en">Easy! Do you have tea leaves and sugar ready?</div></div>
+        <audio controls preload="none" src="samples/v2__en_text_09__bridgev6.wav"></audio> <span class="dur">2.22s</span>
       </div>
     </div>
   </div>
